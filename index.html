@@ -14,32 +14,52 @@
             background-color: #f4f4f4;
         }
         .page {
-            width: 210mm;
-            min-height: 297mm;
-            padding: 20mm;
-            margin: 10mm auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            position: relative;
+          width: 210mm;
+          min-height: 297mm;
+          padding: 10mm;
+          padding-left: 100px;
+          padding-right: 100px;
+          margin: 10mm auto;
+          background: white;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          position: relative;
         }
+        .page::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-image: url("watermark.jpg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 600px;
+          filter: grayscale(1) opacity(0.08)
+        saturate(0.3);
+          pointer-events: none;
+        }
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             border-bottom: 2px solid #000;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+
+            /* Make header larger and independent of page padding */
+            margin-left: 0px;
+            margin-right: 0px;
+            padding: 0px 0px 5px 0px;
+
+            margin-bottom: 30px;
         }
         .logo-area {
             display: flex;
             align-items: center;
         }
         .logo-placeholder {
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            border: 2px dashed #ccc; /* Replace this with your <img> tag for the FAR logo */
-            margin-right: 15px;
+            <img src="far_logo.jpg">;/* Replace this with your <img> tag for the FAR logo */
+            margin-right: 5px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -80,24 +100,6 @@
         .signature {
             margin-top: 50px;
         }
-        .seal {
-            position: absolute;
-            bottom: 80px;
-            right: 80px;
-            width: 120px;
-            height: 120px;
-            border: 2px solid rgba(0, 51, 102, 0.5);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: rgba(0, 51, 102, 0.5);
-            transform: rotate(-15px);
-            font-weight: bold;
-            text-align: center;
-            font-size: 12px;
-        }
         @media print {
             body { background: none; }
             .page { margin: 0; box-shadow: none; }
@@ -109,37 +111,39 @@
 <div class="page">
     <header>
         <div class="logo-area">
-            <div class="logo-placeholder">LOGO</div>
+            <img src="far_logo.jpg" alt="FAR Logo" style="width:25%; height:15px; height:10%;">
             <div class="brand-text">
-                <h1>ORGANIZATION NAME</h1>
+                <h1>JOURNAL NAME</h1>
             </div>
         </div>
         <div class="metrics">
             <div>Date:</div>
-            <div><strong>Reference No.:</strong></div>
+            <div><strong>Reference No:</strong></div>
         </div>
-    </header>
+    </header><br>
 
     <div class="info-section">
-        <div class="info-row"><span class="info-label">ID:</span> ____________________</div>
-        <div class="info-row"><span class="info-label">Title:</span> ____________________</div>
-        <div class="info-row"><span class="info-label">Recipient:</span> ____________________</div>
-        <div class="info-row"><span class="info-label">Organization:</span> ____________________</div>
-    </div>
+        <div class="info-row"><span class="info-label">ID:</span> </div>
+        <div class="info-row"><span class="info-label">Manuscript ID:</span></div>
+        <div class="info-row"><span class="info-label">Title :</span></div>
+        <div class="info-row"><span class="info-label">Stature:</span> </div>
+    </div><br>
 
     <div class="content">
-        <p>To Whom It May Concern,</p>
-        <p>This letter serves as an official certification issued by the organization named above. The details provided in this document confirm the status, approval, or recognition as specified.</p>
-        <p>This certification is issued for formal and administrative purposes.</p>
+        <p>Authors:</p></br>
+        <p>^*Corresponding author......</p><br>
+        <p>Dear...</p><br>
+        <p>The editorial staff of the "Journal Name" is pleased to inform you that your
+article entitled “Title of the article” has been accepted for publication in 'Journal Name'.
+          It will be scheduled in the next available issue.</p>
+        <p>This certification is issued for formal and administrative purposes.</p><br>
     </div>
-
+    <p>Thank you for your interest in and support of 'Journal Name'. We look forward to your ongoing contributions to the journal.</p>
+<br>
     <div class="signature">
-        <p>Your sincerely,<br> <strong>Authorized Office</strong><br> Organization Name<br> Contact Information</p>
+        <p>Your sincerely,<br><br> <strong>Authorized Office</strong><br>FAR PUBLISHING COMPANY<br> Contact Information</p>
     </div>
 
-    <div class="seal">
-        OFFICIAL<br>CERTIFICATION<br>SEAL
-    </div>
 </div>
 
 </body>
